@@ -1,0 +1,302 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 浅色主题基础样式 - 古籍风格 */
+:root {
+  --color-gold: #6b5a3d;          /* 深褐金 - 更古朴 */
+  --color-gold-light: #9d8862;    /* 浅褐金 */
+  --color-accent: #a85a3a;        /* 朱砂红 */
+  --color-bg-primary: #f5f3ed;    /* 米黄纸色 */
+  --color-bg-secondary: #fdfbf7;  /* 浅纸色 */
+  --color-bg-card: #fdfbf7;       /* 卡片背景 */
+  --color-text-primary: #3e3a39;  /* 墨色 */
+  --color-text-secondary: #6b6560; /* 浅墨 */
+  --color-border: #d8d3ca;        /* 边框色 */
+  --color-border-light: #e8e4db;  /* 浅边框 */
+}
+
+body {
+  font-family: 'Noto Sans SC', 'Source Han Sans CN', sans-serif;
+  background: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  min-height: 100vh;
+}
+
+/* 背景装饰 - 古籍纸张质感 */
+.bg-pattern {
+  background-color: var(--color-bg-primary);
+  background-image:
+    radial-gradient(ellipse at top, rgba(107, 90, 61, 0.04) 0%, transparent 50%),
+    radial-gradient(ellipse at bottom, rgba(157, 136, 98, 0.03) 0%, transparent 50%),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 2px,
+      rgba(107, 90, 61, 0.01) 2px,
+      rgba(107, 90, 61, 0.01) 4px
+    );
+}
+
+/* 滚动条样式 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f0ede8;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c9c4bc;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gold);
+}
+
+/* 输入框样式 */
+.input-search {
+  @apply w-full px-6 py-4 rounded-full;
+  background: var(--color-bg-card);
+  border: 1.5px solid var(--color-border);
+  color: var(--color-text-primary);
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+}
+
+.input-search::placeholder {
+  color: var(--color-text-secondary);
+  opacity: 0.6;
+}
+
+.input-search:focus {
+  outline: none;
+  border-color: var(--color-gold);
+  box-shadow: 0 0 0 3px rgba(107, 90, 61, 0.1);
+  background: #ffffff;
+}
+
+/* 按钮样式 */
+.btn-primary {
+  @apply px-6 py-3 rounded-full font-medium;
+  background: linear-gradient(135deg, var(--color-gold) 0%, #5a4a32 100%);
+  color: #fdfbf7;
+  box-shadow: 0 2px 8px rgba(107, 90, 61, 0.25);
+  transition: all 0.2s;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, var(--color-gold-light) 0%, var(--color-gold) 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(107, 90, 61, 0.3);
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
+}
+
+.btn-secondary {
+  @apply px-4 py-2 rounded-lg font-medium;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
+  transition: all 0.2s;
+}
+
+.btn-secondary:hover {
+  background: var(--color-bg-primary);
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+}
+
+/* 卡片样式 */
+.card {
+  @apply rounded-xl p-6;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border-light);
+  box-shadow: 0 2px 8px rgba(62, 58, 57, 0.04);
+}
+
+/* 引文卡片 */
+.citation-card {
+  @apply rounded-lg p-4;
+  background: var(--color-bg-primary);
+  border-left-width: 3px;
+  border-left-style: solid;
+  transition: all 0.2s;
+}
+
+.citation-card:hover {
+  background: #eeebe3;
+  box-shadow: 0 2px 6px rgba(62, 58, 57, 0.06);
+}
+
+/* Markdown内容样式 */
+.markdown-content {
+  @apply leading-relaxed;
+  font-family: 'Noto Serif SC', 'Source Han Serif CN', serif;
+  color: var(--color-text-primary);
+}
+
+.markdown-content h1,
+.markdown-content h2,
+.markdown-content h3 {
+  @apply font-bold mt-6 mb-3;
+  color: var(--color-gold);
+  font-family: 'Noto Serif SC', serif;
+}
+
+.markdown-content h1 { @apply text-2xl; }
+.markdown-content h2 { @apply text-xl; }
+.markdown-content h3 { @apply text-lg; }
+
+.markdown-content p {
+  @apply mb-4;
+  line-height: 1.9;
+}
+
+.markdown-content ul,
+.markdown-content ol {
+  @apply mb-4 pl-6;
+}
+
+.markdown-content li {
+  @apply mb-2;
+}
+
+.markdown-content strong {
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+.markdown-content blockquote {
+  @apply pl-4 my-4;
+  border-left: 3px solid var(--color-gold);
+  background: var(--color-bg-primary);
+  padding: 12px 16px;
+  border-radius: 0 6px 6px 0;
+  color: var(--color-text-secondary);
+  font-style: italic;
+}
+
+.markdown-content code {
+  @apply px-2 py-1 rounded;
+  background: var(--color-bg-primary);
+  color: var(--color-gold);
+  font-family: 'Courier New', monospace;
+  font-size: 0.9em;
+}
+
+/* 动画 */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+@keyframes pulse-gold {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(107, 90, 61, 0.4); }
+  50% { box-shadow: 0 0 20px 5px rgba(107, 90, 61, 0.15); }
+}
+
+.animate-pulse-gold {
+  animation: pulse-gold 2s infinite;
+}
+
+/* 法轮图标旋转动画 */
+@keyframes dharma-rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.dharma-wheel-icon:hover {
+  animation: dharma-rotate 8s linear infinite;
+}
+
+/* 加载动画 */
+.loading-dots {
+  display: inline-flex;
+  gap: 4px;
+}
+
+.loading-dots span {
+  width: 8px;
+  height: 8px;
+  background: var(--color-gold);
+  border-radius: 50%;
+  animation: bounce 1.4s infinite ease-in-out both;
+}
+
+.loading-dots span:nth-child(1) { animation-delay: -0.32s; }
+.loading-dots span:nth-child(2) { animation-delay: -0.16s; }
+
+@keyframes bounce {
+  0%, 80%, 100% { transform: scale(0); }
+  40% { transform: scale(1); }
+}
+
+/* 文献来源标识 - 浅色版 */
+.source-t1558 { border-color: #dc3545; background: #fef7f7; }
+.source-t1562 { border-color: #28a745; background: #f7fef8; }
+.source-t1821 { border-color: #007bff; background: #f7faff; }
+.source-t1822 { border-color: #fd7e14; background: #fffaf7; }
+
+/* 头部样式 */
+.header-bar {
+  background: rgba(253, 251, 247, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+/* 输入区域样式 */
+.input-area {
+  background: rgba(253, 251, 247, 0.95);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid var(--color-border-light);
+}
+
+/* 用户消息气泡 */
+.user-message {
+  background: linear-gradient(135deg, var(--color-gold) 0%, #5a4a32 100%);
+  color: #fdfbf7;
+}
+
+/* AI消息气泡 */
+.ai-message {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border-light);
+}
+
+/* 示例问题按钮 */
+.example-btn {
+  background: var(--color-bg-card);
+  border: 1.5px solid var(--color-border);
+  color: var(--color-text-secondary);
+  transition: all 0.2s;
+}
+
+.example-btn:hover {
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+  background: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(107, 90, 61, 0.1);
+}
+
+/* 相关问题按钮 */
+.related-btn {
+  background: var(--color-bg-primary);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
+}
+
+.related-btn:hover {
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+}

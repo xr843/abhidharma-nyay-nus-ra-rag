@@ -1,0 +1,42 @@
+# Environment variables (secrets)
+.env
+.env.save
+.env.local
+.env.*.local
+*.save
+
+# Python
+__pycache__/
+*.py[cod]
+venv/
+.venv/
+
+# Node
+node_modules/
+dist/
+
+# Data / Models
+*.bin
+*.safetensors
+*.pt
+*.pth
+data/
+*.db
+*.sqlite3
+backend/chroma_db/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Claude
+.claude/
